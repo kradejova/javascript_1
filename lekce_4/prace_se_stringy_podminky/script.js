@@ -35,12 +35,62 @@ const pravda = true
 const nepravda = false
 
 const vek = 18
+const heslo = "simsalabim"
 
+// > >= < <= === !== 
 if(vek >= 18) {
     document.body.innerHTML = `Je ti ${vek}, vitej na strance!`
 } else {
     document.body.innerHTML = `Je ti ${vek}, musis jeste dospet!`
 }
+
+// = === ==
+// hodnota dat. typ
+if(vek === "18") {
+    console.log(true)
+} else {
+    console.log(false)
+}
+
+// hodnota
+if(vek == "18") {
+    console.log(true)
+} else {
+    console.log(false)
+}
+
+//ternarni operator (jednoradkova podminka)
+let dospelost = null
+
+if (vek >= 18) {
+    dospelost = "dospely"
+} else {
+    dospelost = "mladenec"
+}
+
+dospelost = vek >= 18 ? "dospely" : "mladenec"
+
+
+
+
+//else if 
+const vyslednaZnamka = 2
+
+if(vyslednaZnamka === 1) {
+    console.log("Vyborny")
+    //if(){} - muzou byt dalsi podminky v podminkach
+} else if(vyslednaZnamka === 2) {
+    console.log("Chvalitebny")
+} else if(vyslednaZnamka === 3) {
+    console.log("Dobry")
+} else if(vyslednaZnamka === 4) {
+    console.log("Dostatecny")
+} else if(vyslednaZnamka === 5) {
+    console.log("Nedostatecny")
+} else {
+    console.log("ERROR: Spatna hodnota")
+}
+
 
 
 
