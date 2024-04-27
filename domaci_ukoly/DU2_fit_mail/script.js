@@ -1,5 +1,13 @@
-const krestniJmeno = prompt("Zadejte krestni jmeno")
-const prijmeni = prompt("Zadejte primeni")
+//jmeno a prijmeni uzivatele, osekana o white spaces a prevedene na mala pismena
+const krestniJmeno = prompt("Zadejte krestni jmeno").trim().toLowerCase()
+const prijmeni = prompt("Zadejte primeni").trim().toLowerCase()
 
-krestniJmeno = krestniJmeno.trim()
-prijmeni = prijmeni.trim()
+//cast jmena, cast prijmeni, zbytek emailu
+const castJmena = krestniJmeno.slice(0,3)
+const castPrijmeni = prijmeni.slice(0,5)
+const emailFit = "@fit.vut.cz"
+
+//vygenerovana emailova adresa
+document.body.innerHTML += `
+    <p><b>Emailova adresa:</b> ${castPrijmeni}${castJmena}${emailFit}</p> 
+`
