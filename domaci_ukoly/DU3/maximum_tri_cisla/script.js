@@ -17,7 +17,7 @@ const max3 = (cislo1, cislo2, cislo3) => {
 
 document.body.innerHTML += `
 <p><b>Prvni cislo</b>: ${cislo1}<br>
-<b>Druhe cislo</b>: ${cislo2}.<br>
+<b>Druhe cislo</b>: ${cislo2}<br>
 <b>Treti cislo</b>: ${cislo3}<br>
 <b>Nejvetsi cislo ze zadanych cisel</b>: ${max3(cislo1, cislo2, cislo3)}</p>
 `
