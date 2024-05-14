@@ -30,6 +30,11 @@ const updateSkill = (idElement, skillNumber) => {
 
 }
 
+//ID jednotlivych elementu
+const idHtml = "skill1"
+const idCss = "skill2"
+const idJavascript = "skill3"
+
 //zadana hodnota HTML
 const valueHTML = prompt("Ohodnotte svou uroven znalosti HTML cislem 0 - 100:")
 
@@ -40,6 +45,6 @@ const valueCss = prompt("Ohodnotte svou uroven znalosti CSS cislem 0 - 100:")
 const valueJavascript = prompt("Ohodnotte svou uroven znalosti Javascript cislem 0 - 100:")
 
 //volani funkce s parametry id posuvniku a hodnota zadana uzivatelem
-updateSkill("skill1", valueHTML)
-updateSkill("skill2", valueCss)
-updateSkill("skill3", valueJavascript)
+updateSkill(idHtml, valueHTML)
+updateSkill(idCss, valueCss)
+updateSkill(idJavascript, valueJavascript)
