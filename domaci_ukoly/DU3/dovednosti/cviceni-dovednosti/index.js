@@ -1,6 +1,13 @@
 //fce bere id elementu a cislo 0 - 100, ktere zada uzivatel
 const updateSkill = (idElement, skillNumber) => {
 
+    //pokud uzivatel zada jine cislo nez v rozsahu 0 - 100, zobrazi se na strance nasledujici text
+    if (skillNumber > 100 || skillNumber < 0) {
+        return document.body.innerHTML = `
+        <p style="text-align: center;"> Jedna ze zadanych hodnot neni v rozsahu 0 - 100</p>
+        `
+    }
+
     //vyhledani elementu skill(number) pomoci id
     const slider = document.getElementById(idElement)
 
