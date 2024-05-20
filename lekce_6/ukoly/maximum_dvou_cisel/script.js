@@ -13,6 +13,6 @@ const max2 = (cislo1, cislo2) => {
 
 document.body.innerHTML += `
 <p>Prvni cislo: ${cislo1}<br>
-Druhe cislo: ${cislo2}.<br>
+Druhe cislo: ${cislo2}<br>
 Maximum danych cisel: ${max2(cislo1, cislo2)}</p>
 `
