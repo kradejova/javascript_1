@@ -32,6 +32,9 @@ const strongPassword = (len) => {
 const createAccount = (user, generatePassword) => {
   return "Uzivatel " + user + " s heslem " + generatePassword(9)
 }
+//const password = generatepassword(9);
+//  return `Uživatel ${user} s heslem ${password}.`;
+
 
 
 document.body.innerHTML += `
