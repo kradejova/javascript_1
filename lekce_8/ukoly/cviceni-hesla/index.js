@@ -1,6 +1,6 @@
 const weakPassword = (len) => {
   let result = '';
-  for (let i = 0; i < len; i++) {
+  for (let i = 0; i < len;i++) {
     result += String(i % 10);
   }
 

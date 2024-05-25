@@ -43,3 +43,20 @@ document.body.innerHTML += `
 <b>Treti cislo</b>: ${cislo3}<br>
 <b>Nejvetsi cislo ze zadanych cisel</b>: ${max3(cislo1, cislo2, cislo3)}</p>
 `
+
+//reseni od lektora, vyse uvedene reseni je zbytecne moc slozite
+// if (x>y) {
+//     max1 = x
+//   } else {
+//     max1 = y
+//   }
+//   if (y>z){
+//     max2 = y
+//   } else {
+//     max2 = z
+//   }
+//   if (max1>max2) {
+//     return max1
+//   } else {
+//     return max2
+//   }

@@ -1,4 +1,4 @@
-const blikaniZarovkou = document.querySelector("#app")
+const blikaniZarovkou = document.querySelector(".bulb")
 
 //pri stisknuti klavesy kdekoli na strance se zapne nebo vypne zarovka
 blikaniZarovkou.addEventListener("keypress", () => {
