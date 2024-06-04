@@ -9,10 +9,25 @@
   </head>
   <body>
     <form id="reg">
-        Jmeno: <input id="firstName" type="text">
-        <button type="submit">Odeslat</button>
+        <label class="field"> Jméno: <input type="text" id="firstName"></label>
+        <label class = "field">Pocet hodin: <input type="text" id="hours"></label>
+        <label class="field">Heslo: <input type="text" id="password"</label>
+        
+        <br><br>
 
+        <label class="field">
+          Spoluprace:
+          <select id="partnership">
+            <option value="za">Zamestnanec</option>
+            <option value="os">OSVC</option>
+          </select>
+        </label>
+        
+
+        <button type="submit">Odeslat</button>
     </form>
+
+    <p id="info"></p>
     <script src="index.js"></script>
   </body>
 </html>
