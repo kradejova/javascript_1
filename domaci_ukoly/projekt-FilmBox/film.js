@@ -104,20 +104,93 @@ const filmy = [
 		premiera: '2022-12-24',
 	},
 ]
+
+//pridani dalsich filmu
+
+//pridano na konec pole
+filmy.push({
+	id: 'rebelka',
+		nazev: 'Rebelka',
+		plakat: {
+			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/158/602/158602061_43ea8f.jpg',
+			sirka: 420,
+			vyska: 592,
+		},
+		ochutnavka: 'Disneyovka, kde princezna nepotřebuje prince a zachrání se sama.',
+		popis:
+			'Už od starých časů se po mnoho generací šíří příběhy o epických bitvách a mystických legendách v drsné a tajemné Skotské vysočině. Ve filmu se k legendě přidá nová pověst, když odvážná Merida stane tváří v tvář tradici, osudu a nejkrutější bestii. Merida je zkušená lučištnice a impulzivní dcera krále Ferguse a královny Elinor. Je odhodlána jít si v životě svou vlastní cestou. Vzepře se starému zvyku zasvěcení pánům země. Silnému lordu MacGuffinovi, mrzutému Macintoshovi a svárlivému Dingwallovi. Meridiny činy nechtěně rozpoutají v království chaos a běsnění. Když se obrátí o pomoc k podivínské staré čarodějnici, dostane prokleté přání. Merida, která následuje nebezpečné síly, objeví význam skutečné odvahy, aby zlomila příšernou kletbu, než bude příliš pozdě. (Falcon) ',
+		premiera: '2012-08-16',
+})
+
+//pridano na zacatek pole
+filmy.unshift({
+	id: 'x-men-origins-wolverine',
+		nazev: 'X-Men Origins: Wolverine',
+		plakat: {
+			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/159/354/159354342_558f38.jpg',
+			sirka: 420,
+			vyska: 592,
+		},
+		ochutnavka: 'Hugh Jackman ve své nejlepší roli.',
+		popis:
+			'Bratři Logan/Wolverine a Victor jsou od útlého věku nerozlučně spolu. Nespojuje je bratrská láska, ale to, že jsou oba mutanti a v dospělosti se stávají členy týmu Weapon X, vedeného Williamem Strikerem. Tým je složený ze samých mutantů, kteří jsou něčím výjimeční. Při jedné vojenské akci Stryker, rozkáže aby Victor použil své násilí podle libosti. Logan/Wolverine s tím nesouhlasí a po masakru se rozhodne jednotku Weapon X opustit...  Odjíždí do hor, kde spokojeně 6 let žije se svou přítelkyní Kaylaou. Pak se jednoho dne objeví Victor a Kaylau zabije. Logan/Wolverine je bez sebe a okamžitě vyhledá Strykera. Ten mu ovšem neřekne úplně vše, hovoří jen o tom, že Victor se snaží zabít všechny členy Weapon X, po smrti jsou již Bolt a Wade. Stryker má pro Logana/Wolverine návrh – v jeho laboratoři ho nechá vylepšit, aby byl schopný zabít o tolik silnějšího Victora. Logan/Wolverine nejprve není nadšený, ale nakonec přijímá a podstupuje neuvěřitelnou přeměnu z mutanta na supermutanta. Během přetvářecího programu málem zemře, ovšem až za prahem samotné smrti, se nečekaně začne probírat a uslyší, jak Stryker rozkazuje vymazat jeho paměť. Logan/Wolverine se znenadání utrhne ze všech přístrojů, na které je napojen, a unikne ze základny. Chtěli ho totiž využít k něčemu jinému, než bylo domluveno. Teprve teď Logan/Wolverine pochopí, že vše nastražil Stryker – i samotného Victora, který mu ve všem pomáhá... Logan/Wolverine, je na útěku. Ukrývá se na farmě starého páru, kteří mu poskytnou úkryt, připomíná jim totiž jejich mrtvého syna. bohužel je za nějaký čas vystopován a manželský pár je zabit. Logan/Wolverine se opět dává na útěk, přičemž zneškodní mnoho svých pronásledovatelů... (TV Prima) ',
+		premiera: '2009-04-30',
+})
+
 //bod 5 
 //ulozeni id filmu ziskaneho z url do promenne
 const idFilmu = (location.hash).slice(1,location.hash.length)
 //kontrola
-console.log(idFilmu)
+//console.log(idFilmu)
 
-//bod 8
-const form = document.querySelector("note-form")
+let nalezenyFilm = null
 
-form.addEventListener("submit", (e) => {
-	e.preventDefault()
+//bod 5, podbod 4 - vyhledani pomoci for cyklu
 
-	const msgInput = document.querySelector("#message-input")
-	if (msgInput.value === null) {
-		msgInput.classList.add("is-invalid")
+// for (let i = 0; i < filmy.length; i++) {
+// 	if (filmy[i].id === idFilmu) {
+// 		nalezenyFilm = filmy[i]
+// 		break
+// 	}
+// }
+//kontrola v konzoli
+// console.log(nalezenyFilm)
+
+//bod 5, podbod 4 - vyhledani pomoci forEach
+filmy.forEach((film) => {
+	if(film.id === idFilmu) {
+		nalezenyFilm = film
 	}
 })
+//kontrola v konzoli
+console.log(nalezenyFilm)
+
+//bod 5, podbod 4 - vyhledani pomoci find metody
+// const nalezenyFilm = filmy.find(film => film.id === idFilmu)
+//kontrola v konzoli
+// console.log(nalezenyFilm)
+
+//vypsani prvku z objektu do stranky
+//const detailFilmu = document.querySelector("#detail-filmu")
+
+//nazev filmu
+const nazevFilmu = document.querySelector(".card-title")
+nazevFilmu.textContent = nalezenyFilm.nazev
+
+//popis filmu
+const popisFilmu = document.querySelector(".card-text")
+popisFilmu.textContent = nalezenyFilm.popis
+
+const plakatFilmu = document.querySelector(".col-md-7")
+plakatFilmu.getAttribute(img.src) = nalezenyFilm.plakat.url
+
+
+
+// form.addEventListener("submit", (e) => {
+// 	e.preventDefault()
+
+// 	const msgInput = document.querySelector("#message-input")
+// 	if (msgInput.value === null) {
+// 		msgInput.classList.add("is-invalid")
+// 	}
+// })

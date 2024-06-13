@@ -13,9 +13,9 @@ document.querySelector("#newsletter").addEventListener("submit", (e) => {
 //event navazany na input v textovem poli pro email
 document.querySelector("#email").addEventListener("input", (e) => {
     //zobrazeni cerveneho ramecku pro prazdne textove pole
-    e.style.border = "none"
+    //e.style.border = "none"
     if (e.target.value.length === 0) {
-        document.querySelector("#email").style.border = "none"
+        //document.querySelector("#email").style.border = "none"
         e.target.classList.toggle("red-border")
     //po pridani kontroly na zavinac je toto asi zbytecne
     } else if (e.target.value.length > 0) {
