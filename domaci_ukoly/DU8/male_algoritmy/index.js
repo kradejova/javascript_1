@@ -47,6 +47,7 @@ numbers.forEach((number) => {
   const vzdalenost = (numbers.length - numbers.indexOf(number)) - 1
   document.body.innerHTML += `<p><b>Vzdalenost cisla ${number} od cisla 5:</b> ${vzdalenost}</p>`
 })
+
 //   Vypište do stránky druhé mocnicny vzdáleností všech čísel od čísla 5.
 numbers.forEach((number) => {
   //odecitam 1, protoze indexujeme od 0, pokud to neodectu, je vzdalenost posunuta o 1
