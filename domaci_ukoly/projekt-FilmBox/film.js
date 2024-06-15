@@ -179,7 +179,7 @@ filmy.forEach((film) => {
 	}
 })
 //kontrola v konzoli
-console.log(nalezenyFilm)
+//console.log(nalezenyFilm)
 
 //bod 5, podbod 4 - vyhledani pomoci find metody
 // const nalezenyFilm = filmy.find(film => film.id === idFilmu)
@@ -237,20 +237,26 @@ formular.addEventListener("submit", ulozit)
 
 //bod 6 - prace s datem premiery
 //bod 6, podbod 2
-console.log(nalezenyFilm.premiera)
+//kontrola v konzoli
+//console.log(nalezenyFilm.premiera)
 const datumPremiery = dayjs(nalezenyFilm.premiera).format('D. M. YYYY')
-console.log(datumPremiery)
+//kontrola v konzoli
+//console.log(datumPremiery)
 
 //bod 6, bonus - vypocet poctu dni od premiery
 const dnesniDatum = dayjs()
-console.log(dnesniDatum.format("D. M. YYYY"))
+//kontrola v konzoli
+//console.log(dnesniDatum.format("D. M. YYYY"))
 const vypocetDni = dayjs(nalezenyFilm.premiera).diff(dnesniDatum, "days")
-console.log(vypocetDni)
+//kontrola v konzoli
+//console.log(vypocetDni)
 
 //zobrazeni noveho stringu pro premieru
 //puvodni string: Premiéra 24. prosince 2022, což je za 24 dní.
 const premiera = document.querySelector("#premiera")
+//smazani puvodniho textu
 premiera.textContent = ""
+//nastaveni noveho textu s nalezenym datem premiery
 premiera.innerHTML += `Premiéra <strong>${datumPremiery}</strong>, `
 
 //extrabonus - osetreni, ze se slovo den zobrazi ve spravnem tvaru
