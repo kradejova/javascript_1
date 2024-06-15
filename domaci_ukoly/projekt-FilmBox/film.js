@@ -137,7 +137,7 @@ filmy.unshift({
 		premiera: '2009-04-30',
 })
 
-//bod 5 
+//bod 5 - vepsani informaci o danem filmu z pole na detailu filmu
 //ulozeni id filmu ziskaneho z url do promenne
 const idFilmu = (location.hash).slice(1,location.hash.length)
 //kontrola
@@ -184,11 +184,10 @@ nazevFilmu.textContent = nalezenyFilm.nazev
 const popisFilmu = document.querySelector("#detail-filmu .card-text")
 popisFilmu.textContent = nalezenyFilm.popis
 
-//bod 8
+//bod 8 - prace s formularem na poznamku
 const formular = document.querySelector("#note-form")
 const textovePole = document.querySelector("#message-input")
 const podminkyPouzivani = document.querySelector("#terms-checkbox")
-//const ulozit = document.querySelector(".btn")
 
 //funkce, ktera overuje obsah textoveho pole a zaskrtnuti checkboxu
 const ulozit = (e) => {
