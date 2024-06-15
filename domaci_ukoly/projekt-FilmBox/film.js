@@ -170,27 +170,54 @@ console.log(nalezenyFilm)
 //kontrola v konzoli
 // console.log(nalezenyFilm)
 
-//vypsani prvku z objektu do stranky
-//const detailFilmu = document.querySelector("#detail-filmu")
+//bod 5, podbod 5
+
+//nastaveni src odpovidajici url src zvoleneho filmu
+const plakat = document.querySelector("#detail-filmu img")
+plakat.src = nalezenyFilm.plakat.url
 
 //nazev filmu
-const nazevFilmu = document.querySelector(".card-title")
+const nazevFilmu = document.querySelector("#detail-filmu .card-title")
 nazevFilmu.textContent = nalezenyFilm.nazev
 
-//popis filmu
-const popisFilmu = document.querySelector(".card-text")
+// //popis filmu
+const popisFilmu = document.querySelector("#detail-filmu .card-text")
 popisFilmu.textContent = nalezenyFilm.popis
 
-const plakatFilmu = document.querySelector(".col-md-7")
-plakatFilmu.getAttribute(img.src) = nalezenyFilm.plakat.url
+//bod 8
+const formular = document.querySelector("#note-form")
+const textovePole = document.querySelector("#message-input")
+const podminkyPouzivani = document.querySelector("#terms-checkbox")
+//const ulozit = document.querySelector(".btn")
+
+//funkce, ktera overuje obsah textoveho pole a zaskrtnuti checkboxu
+const ulozit = (e) => {
+	//zamezeni vychoziho chovani prohlizece
+	e.preventDefault()
+
+	//kontrola textoveho pole
+	if (textovePole.value.length === 0) {
+		textovePole.classList.add("is-invalid")
+		textovePole.focus()
+	} else {
+		textovePole.classList.remove("is-invalid")
+	}
+
+	//kontrola checkboxu
+	if (textovePole.value.length !== 0 && podminkyPouzivani.checked === false){
+		podminkyPouzivani.classList.add("is-invalid")
+		podminkyPouzivani.focus()				
+	} else {
+		podminkyPouzivani.classList.remove("is-invalid")
+	}
+
+	//zmena formulare na ulozeny text, pokud jsou splneny obe podminky, tj. textove pole neni prazdne a jsou zaskrtnute podminky pouzivani
+	if (textovePole.value.length !== 0 && podminkyPouzivani.checked) {
+		formular.textContent = textovePole.value
+	}	
+}	
+
+//eventListener s vyse napsanou funkci, ktery je navazany na tlacitko ulozit
+formular.addEventListener("submit", ulozit)
 
 
-
-// form.addEventListener("submit", (e) => {
-// 	e.preventDefault()
-
-// 	const msgInput = document.querySelector("#message-input")
-// 	if (msgInput.value === null) {
-// 		msgInput.classList.add("is-invalid")
-// 	}
-// })
