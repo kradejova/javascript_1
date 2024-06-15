@@ -122,6 +122,22 @@ filmy.push({
 		premiera: '2012-08-16',
 })
 
+
+//pridano na zacatek pole
+filmy.unshift({
+	id: 'deadpool-wolverine',
+		nazev: 'Deadpool & Wolverine',
+		plakat: {
+			url: 'https://image.pmgstatic.com/cache/resized/w360/files/images/film/posters/168/616/168616909_qrysqu.jpg',
+			sirka: 420,
+			vyska: 592,
+		},
+		ochutnavka: 'Marvel NSFW romance.',
+		popis:
+			'Zatím není dostupný.',
+		premiera: '2024-07-25',
+})
+
 //pridano na zacatek pole
 filmy.unshift({
 	id: 'x-men-origins-wolverine',
@@ -218,5 +234,42 @@ const ulozit = (e) => {
 
 //eventListener s vyse napsanou funkci, ktery je navazany na tlacitko ulozit
 formular.addEventListener("submit", ulozit)
+
+//bod 6 - prace s datem premiery
+//bod 6, podbod 2
+console.log(nalezenyFilm.premiera)
+const datumPremiery = dayjs(nalezenyFilm.premiera).format('D. M. YYYY')
+console.log(datumPremiery)
+
+//bod 6, bonus - vypocet poctu dni od premiery
+const dnesniDatum = dayjs()
+console.log(dnesniDatum.format("D. M. YYYY"))
+const vypocetDni = dayjs(nalezenyFilm.premiera).diff(dnesniDatum, "days")
+console.log(vypocetDni)
+
+//zobrazeni noveho stringu pro premieru
+//puvodni string: Premiéra 24. prosince 2022, což je za 24 dní.
+const premiera = document.querySelector("#premiera")
+premiera.textContent = ""
+premiera.innerHTML += `Premiéra <strong>${datumPremiery}</strong>, `
+
+//extrabonus - osetreni, ze se slovo den zobrazi ve spravnem tvaru
+if (vypocetDni === 0) {
+	premiera.innerHTML += `což je dnes.`
+} else if (vypocetDni < -1) {
+	premiera.innerHTML += `což bylo před ${Math.abs(vypocetDni)} dny.`
+} else if (vypocetDni === -1) {
+	premiera.innerHTML += `což bylo před ${Math.abs(vypocetDni)} dnem.`
+} else if (vypocetDni === 1){
+	premiera.innerHTML += `což bude za ${vypocetDni} den.`
+} else if (vypocetDni > 1 && vypocetDni < 5){
+	premiera.innerHTML += `což bude za ${vypocetDni} dny.`
+} else {
+	premiera.innerHTML += `což bude za ${vypocetDni} dní.`
+}
+
+
+
+
 
 

@@ -124,6 +124,21 @@ filmy.push({
 
 //pridano na zacatek pole
 filmy.unshift({
+	id: 'deadpool-wolverine',
+		nazev: 'Deadpool & Wolverine',
+		plakat: {
+			url: 'https://image.pmgstatic.com/cache/resized/w360/files/images/film/posters/168/616/168616909_qrysqu.jpg',
+			sirka: 420,
+			vyska: 592,
+		},
+		ochutnavka: 'Marvel NSFW romance.',
+		popis:
+			'Zatím není dostupný.',
+		premiera: '2024-07-25',
+})
+
+//pridano na zacatek pole
+filmy.unshift({
 	id: 'x-men-origins-wolverine',
 		nazev: 'X-Men Origins: Wolverine',
 		plakat: {
