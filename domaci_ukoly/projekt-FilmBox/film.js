@@ -274,6 +274,44 @@ if (vypocetDni === 0) {
 	premiera.innerHTML += `což bude za ${vypocetDni} dní.`
 }
 
+//bod 7 - prace s hvezdickami
+
+
+//pomocna fce
+const zvyrazneni = (cislo) => {
+	document.querySelectorAll(".fa-star").forEach((hvezda, index) => {
+		//index+1, protoze indexujeme od 1
+		if (index+1 <= cislo) {	
+		hvezda.classList.remove("far")
+		hvezda.classList.add("fas")
+	} else {
+		hvezda.classList.remove("fas")
+		hvezda.classList.add("far")
+	}
+})
+}
+
+document.querySelectorAll(".fa-star").forEach((hvezda) => {
+	hvezda.addEventListener("click", (e) => {
+		//parseInt prevede string "5" na cislo 5
+		const poradiHvezdy = parseInt(e.target.textContent)
+		//volam fci pro zvyrazneni hvezd s cislem kliknute hvezdy, tj. oznaci se kliknuta hvezda i hvezdy pod ni
+		zvyrazneni(poradiHvezdy)
+		
+	})
+
+	hvezda.addEventListener("mouseenter", (e) => {
+		const poradiHvezdyMys = parseInt(e.target.textContent)
+		zvyrazneni(poradiHvezdyMys)
+	})
+
+	hvezda.addEventListener("mouseleave", (e) => {
+		zvyrazneni(poradiHvezdy)
+	})
+})
+
+
+
 
 
 

@@ -8,8 +8,11 @@ let otoceneKarty = 0
 const karticky = document.querySelectorAll('.karticka')
 karticky.forEach((karta) => {
     karta.addEventListener("click", () => {
+        otoceneKarty++
         karta.classList.toggle("otocena")
-        otoceneKarty ++
+        if (otoceneKarty === 2) {
+            document.querySelectorAll(".karticka")
+        }
     })    
 })
 
