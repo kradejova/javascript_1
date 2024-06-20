@@ -291,13 +291,17 @@ const zvyrazneni = (cislo) => {
 })
 }
 
+//pridani eventListeneru pro kazdou hvezdu
+//promenna, do ktere ulozim kliknuty pocet hvezd
+let kliknutyPocetHvezd = 0
+
 document.querySelectorAll(".fa-star").forEach((hvezda) => {
 	hvezda.addEventListener("click", (e) => {
 		//parseInt prevede string "5" na cislo 5
 		const poradiHvezdy = parseInt(e.target.textContent)
 		//volam fci pro zvyrazneni hvezd s cislem kliknute hvezdy, tj. oznaci se kliknuta hvezda i hvezdy pod ni
 		zvyrazneni(poradiHvezdy)
-		
+		kliknutyPocetHvezd = poradiHvezdy
 	})
 
 	hvezda.addEventListener("mouseenter", (e) => {
@@ -306,9 +310,57 @@ document.querySelectorAll(".fa-star").forEach((hvezda) => {
 	})
 
 	hvezda.addEventListener("mouseleave", (e) => {
-		zvyrazneni(poradiHvezdy)
+		//ve fci zadavam puvodni kliknuty pocet hvezd
+		zvyrazneni(kliknutyPocetHvezd)
 	})
 })
+
+//bod 9 - prace s prehravacem
+const video = document.querySelector("#prehravac video")
+
+//kliknuti na video - spusti se prehravani
+document.querySelector(".play").addEventListener("click", () => {
+	video.play()
+	//zmeni se tlacitko play na tlacitko pause
+	// video.addEventListener("playing", () => {
+	// 	document.querySelector("#prehravac").classList.toggle("playing")
+	// })
+})
+video.addEventListener("playing", () => {
+	document.querySelector("#prehravac").classList.toggle("playing")
+})
+
+document.querySelector(".pause").addEventListener("click", () => {
+	video.pause()
+	// video.addEventListener("pause", () => {
+	// 	document.querySelector("#prehravac").classList.toggle("playing")
+	// })
+})
+
+video.addEventListener("pause", () => {
+	document.querySelector("#prehravac").classList.toggle("playing")
+})
+
+video.addEventListener("timeupdate", () => {
+	const cas = Math.round(video.currentTime)
+	const seconds = cas % 60
+	const minutes = Math.round(cas / 60)
+	
+	//zobrazeni casu z promenne v prvku ve videu
+	document.querySelector(".current-time").textContent = `${cas}`
+
+	//pokus o zobrazeni ve formatu 00:00, nefunkcni, nutne prepsat
+	// if (seconds < 10 && minutes === 0) {
+	// 	document.querySelector(".current-time").textContent = `0${minutes}:0${seconds}`
+	// } else if (seconds >= 10 && minutes === 0) {
+	// 	document.querySelector(".current-time").textContent = `0${minutes}:${seconds}`
+	// } else if (minutes > 0) {
+	// 	document.querySelector(".current-time").textContent = `0${minutes}:${seconds}`
+	// }
+})
+
+
+
 
 
 
